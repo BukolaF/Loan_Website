@@ -19,7 +19,7 @@ const Navbar = () => {
               <li key={link} className="p-8"> {link}</li>)}
 </ul>
         <div onClick={handleNav} className='block md:hidden'>
-          {!showNav ? <AiOutlineClose size={20} /> : <AiOutlineMenu  size={20}/>}
+          {showNav ? <AiOutlineMenu size={20} /> : <AiOutlineClose  size={20}/>}
           
           </div>  
           <div className={!showNav ? 'fixed left-0 top-0 w-[70%] h-full border-r border-r-blue-200 bg-blue-300 ease-in-out duration-500' : 'fixed left-[-100%]'}>
