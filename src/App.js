@@ -1,26 +1,27 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import Navbar from "./components/Navbar"
-import Home from './pages/Home';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import  Loans from './pages/Loans';
-import Login from './pages/Login';
+import {Home, About, Contact, Loans, Login} from './pages/index';
 
 
 function App() {
+  const ROUTE_PATHS ={
+    about: 'About',
+    contact: 'Contact',
+    loans: 'Loans',
+    login: 'Login',
+  
+  }
   return (
-    <div>
       <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Navbar />} />
+        <Route path='/' element={<Home />} />
         <Route index element={<Home />} />
-        <Route path='About' element={<About />} />
-        <Route path='Contact' element={<Contact />} />
-        <Route path='Loans' element={<Loans />} /> 
-        <Route path='Login' element={<Login />} />
+      <Route path={ROUTE_PATHS.about} element={<About />} />
+      <Route path={ROUTE_PATHS.contact} element={<Contact />} />
+      <Route path={ROUTE_PATHS.loans} element={<Loans />} />
+      <Route path={ROUTE_PATHS.login} element={<Login />} />
       </Routes>
       </BrowserRouter>
-    </div>
+
   );
 }
 
