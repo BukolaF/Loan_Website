@@ -1,7 +1,7 @@
 import React from 'react'
 import {FaTwitter, FaInstagram, FaFacebook, FaWhatsapp} from 'react-icons/fa';
 
-const Footer = () => {
+ export const Footer = () => {
   return (
     <div className='w-full mt-2 bg-blue-950 text-gray-300 py-2 px-2 mx-w-[1400px] mx-auto'>
         <div className=' flex flex-row items-center border-b-2 border-b-blue-950 px-4 py-8 justify-center '>
@@ -23,5 +23,3 @@ const Footer = () => {
 
   )
 }
-
-export default Footer

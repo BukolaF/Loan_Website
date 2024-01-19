@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Loans = () => {
+export const Loans = () => {
   return (
     <div>
               <p className='font-bold p-2 text-3xl uppercase'>Quick loan service</p>
@@ -8,5 +8,3 @@ const Loans = () => {
     </div>
   )
 }
-
-export default Loans

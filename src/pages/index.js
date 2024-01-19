@@ -1,11 +1,17 @@
-import React from 'react'
-import About from './About'
-import Contact from './Contact'
-import Home from './Home'
-import Loans from './Loans'
-import Login from './Login'
+import { About } from './About';
+import { Contact } from './Contact';
+import { Home } from './Home';
+import { Loans } from './Loans';
+import { Login } from './Login';
 
-const index = () => {
+
+export * from './About'
+export * from './Contact'
+export * from './Home'
+export * from './Loans'
+export * from './Login'
+
+export const index = () => {
   return (
     <div>
         <About />
@@ -17,4 +23,3 @@ const index = () => {
   )
 }
 
-export {About,Contact, Home, Loans, Login};

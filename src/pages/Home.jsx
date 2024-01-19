@@ -1,10 +1,9 @@
 import React from 'react';
-import Hero from '../components/Hero';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar'
+import {Hero, Navbar, Footer} from '../components/';
 
 
-const Home = () => {
+
+export const Home = () => {
   return (
     <div>
       <Navbar />
@@ -14,4 +13,3 @@ const Home = () => {
   )
 }
 
-export default Home

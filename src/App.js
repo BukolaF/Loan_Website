@@ -1,8 +1,9 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import {Home, About, Contact, Loans, Login} from './pages/index';
+import {Home, About, Contact, Loans, Login} from './pages/';
 
 
 function App() {
+  
   const ROUTE_PATHS ={
     about: 'About',
     contact: 'Contact',
