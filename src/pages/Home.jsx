@@ -1,15 +1,16 @@
 import React from 'react';
-import {Hero, Navbar, Footer} from '../components/';
+import {Hero, Navbar, Footer, Features} from '../components/';
 
 
 
 export const Home = () => {
   return (
-    <div>
+    <>
       <Navbar />
       <Hero />
+      <Features/>
       <Footer />
-    </div>
+    </>
   )
 }
 

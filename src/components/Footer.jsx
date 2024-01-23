@@ -3,8 +3,8 @@ import {FaTwitter, FaInstagram, FaFacebook, FaWhatsapp} from 'react-icons/fa';
 
  export const Footer = () => {
   return (
-    <div className='w-full mt-2 bg-blue-950 text-gray-300 py-2 px-2 mx-w-[1400px] mx-auto'>
-        <div className=' flex flex-row items-center border-b-2 border-b-blue-950 px-4 py-8 justify-center '>
+    <div className='w-[100%] lg:px-2 mt-2 bg-blue-950 text-gray-300 py-2 px-2'>
+        <div className=' container flex flex-row items-center mx-auto md: px-8 py-16 justify-center '>
             <div className='py-8 md:pt-2'>
                 <p className='font-extrabold text-3xl uppercase'>For any Enquiries: </p>
                 <p className='py-4 font-bold'>send an email to support@securedloans.com</p>

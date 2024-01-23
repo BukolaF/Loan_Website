@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 
 export const NavItems = () => {
     const navItems =[
+        {path:"/", link: "Home"},
         {path: "/loans", link: "Loans"},
         {path: "/about", link: "About"},
         {path: "/login", link: "Login"},
@@ -11,7 +12,7 @@ export const NavItems = () => {
       ]
   return (
     <> 
-        {navItems.map(({path,link}) => <li className='p-8'>
+        {navItems.map(({path,link}) => <li className='p-8 font-semibold'>
         <NavLink to={path}>{link}</NavLink> </li>)}
         </>
   )
