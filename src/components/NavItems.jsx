@@ -13,7 +13,13 @@ export const NavItems = () => {
   return (
     <> 
         {navItems.map(({path,link}) => <li className='p-8 font-semibold'>
-        <NavLink to={path}>{link}</NavLink> </li>)}
+        <NavLink
+        className={({isActive, isPending}) => isActive
+        ? "active"
+        : isPending
+        ? "pending"
+        : ""} 
+        to={path}>{link}</NavLink> </li>)}
         </>
   )
 }

@@ -8,8 +8,11 @@ body{
 }
 
 ul{
-  text-decoration: none;
+  text-decoration:none;
 }
 button{
   cursor: pointer;
+}
+.active{
+  @apply text-blue-900 font-extrabold underline;
 }

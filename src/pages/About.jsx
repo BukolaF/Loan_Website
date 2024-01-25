@@ -1,6 +1,5 @@
 import React from 'react'
-import { Footer, Navbar } from '../components'
-import { Features } from '../components/Features'
+import { Footer, Navbar, Features } from '../components'
 
 export const About = () => {
   return (

@@ -1,6 +1,5 @@
 import React from 'react'
-import { Footer, Navbar } from '../components'
-import { LoanTypes } from '../components/LoanTypes'
+import { Footer, Navbar, LoanTypes} from '../components'
 
 export const Loans = () => {
   return (
