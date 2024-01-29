@@ -1,5 +1,5 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import {Home, About, Contact, Loans, Login, SignUp} from './pages/';
+import {Home, UserDashboard, About, Contact, Loans, Login, SignUp} from './pages/';
 
 
 function App() {
@@ -9,19 +9,21 @@ function App() {
     contact: 'Contact',
     loans: 'Loans',
     login: 'Login',
-    signup: 'SignUp'
+    signup: 'SignUp',
+    dashboard: 'UserDashboard',
   
   }
   return (
       <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/signup' element={<SignUp />} />
         <Route index element={<Home />} />
       <Route path={ROUTE_PATHS.about} element={<About />} />
       <Route path={ROUTE_PATHS.contact} element={<Contact/>} />
       <Route path={ROUTE_PATHS.loans} element={<Loans />} />
       <Route path={ROUTE_PATHS.login} element={<Login />} />
+      <Route path={ROUTE_PATHS.signup} element={<SignUp />} />
+      <Route path={ROUTE_PATHS.dashboard} element={<UserDashboard />} />
       </Routes>
       </BrowserRouter>
 

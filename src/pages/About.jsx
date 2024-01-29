@@ -1,5 +1,7 @@
 import React from 'react'
-import { Footer, Navbar, Features } from '../components'
+import { Footer, Navbar} from '../components'
+import { Features } from '../components'
+
 
 export const About = () => {
   return (
@@ -14,7 +16,7 @@ export const About = () => {
         <div className='bg-blue-200 my-32'>
 
       <p className='flex justify-center font-extrabold text-blue-600 md:text-5xl sm:text-4xl text-2xl mt-6 py-10'>What makes us Different</p>
-      <Features />
+      <Features/>
       </div>
       </div>
       </div>

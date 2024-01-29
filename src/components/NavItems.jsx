@@ -12,7 +12,7 @@ export const NavItems = () => {
       ]
   return (
     <> 
-        {navItems.map(({path,link}) => <li className='p-8 font-semibold'>
+        {navItems.map(({path,link}) => <li key={link} className='p-8 font-semibold'>
         <NavLink
         className={({isActive, isPending}) => isActive
         ? "active"
