@@ -13,8 +13,9 @@ import classNames from 'classnames';
 
   return (
 
-    <div className='flex justify-between items-center h-24 max-w-[1240px] mx-auto px-8 py-4 text-blue-600'>
-        <h1 className=' flex w-full text-3xl font-bold text-blue-700'>Secured<span className='text-blue-500'>Loans</span> <GiTakeMyMoney className='h-8 w-8' size={20}/></h1>
+    <div className='flex justify-between items-center h-24 max-w-[1240px] mx-auto px-8 py-4 text-blue-600'>       
+     <h1 className=' flex w-full text-3xl font-bold text-blue-700'>Secured<span className='text-blue-500'>Loans</span> <GiTakeMyMoney className='h-8 w-8' size={20}/></h1>
+
         <ul className='hidden md:flex '>
         <NavItems />
 </ul>

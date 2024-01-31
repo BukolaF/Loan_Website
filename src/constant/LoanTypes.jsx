@@ -1,8 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import personal_image_logo from '../components/Assets/personal_image_logo.jpeg';
-import business_image_logo from '../components/Assets/business_image_logo.jpeg';
-import cooperative_image_logo from '../components/Assets/cooperative_image_logo.jpeg'
+import personal_image_logo from '../Assets/personal_image_logo.jpeg';
+import business_image_logo from '../Assets/personal_image_logo.jpeg';
+import cooperative_image_logo from '../Assets/personal_image_logo.jpeg'
 
 const lists = [
     {

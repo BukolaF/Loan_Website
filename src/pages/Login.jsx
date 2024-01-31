@@ -4,72 +4,34 @@ import {IoMdEyeOff, IoMdEye} from 'react-icons/io';
 import {MdLock, MdEmail } from 'react-icons/md';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import {useForm} from 'react-hook-form'
 
 export const Login = () => {
 
   const passwordToggle = () =>{
     setOpenEye(!openEye)
   }
-
+  
   const [openEye, setOpenEye] = useState(false);
-  const [loginData, setLoginData] = useState({
-    email: '',
-    password: '',
-})
 
-    const[errors, setErrors] = useState({})
-    const [validForm, setValidForm] =useState(true)
+const navigate = useNavigate();
 
-  const navigate = useNavigate();
+const {register, handleSubmit, formState:{errors}} = useForm();
 
-  const handleLogin = (e) => {
-    e.preventDefault()
-
-    let isvalidForm = true;
-    let validationErrors = {}
-
-    if(loginData.email === "" || loginData.email === null){
-        isvalidForm = false;
-        validationErrors.email = "Email is required"
-    } else if(/^[A-Za-z]\._-[0-9]*[@][A-Za-z]*[.][a-z]{2,4}$/.test(loginData.email)){
-      isvalidForm = false;
-      validationErrors.email = "email is not valid"
-  }
-  if(loginData.password === "" || loginData.password === null){
-      isvalidForm = false;
-      validationErrors.password = "password is required"
-
-  }else if(loginData.password.length < 8){
-      isvalidForm = false;
-      validationErrors.password = "password is invalid"
-  }
-        
-          axios.get('http://localhost:4000/users')
-            .then(result =>{
-                result.data.map(user => {
-                  if (user.email === loginData.email){
-                    if(user.password === loginData.password){
+  const onSubmit = async (data) => {
+        const response =  await axios.get('http://localhost:4000/users/')
+            .then(response =>{
+                response.data.map(user => {
+                  if (user.email === data.email || user.password === data.password){
                       alert('login succesful')
                       navigate('/UserDashboard')
-                    } else{
-                      isvalidForm = false;
-                      validationErrors.password = 'wrong password';
-                    }
-                  } else if(loginData.email !== ""){
-                    isvalidForm = false;
-                    validationErrors.email = 'wrong email' 
                   }
-            })
-            setErrors(validationErrors);
-            setValidForm(isvalidForm)
-
-        })
-        .catch(err =>{
-            alert(`failed:` +err.message)
-        });
-
-}
-
+                    // }else{
+                    //   alert('incorrect password or email')
+                    // }
+    
+            
+                  })})}
     
 
   return (
@@ -78,7 +40,7 @@ export const Login = () => {
       <div className='flex-1 bg-gray-300 py-6 my-20' >
         <div className='md:w-4/12 w-11/12 mt-8 mb-5 py-4 rounded-lg border border-neutral-100 shadow bg-gray-400 h-auto mx-auto'>
         <h2 className='text-3xl text-center text-black uppercase font-bold my-6 sm:text-4xl'>Login</h2>
-        <form onSubmit={handleLogin} className='relative h-full p-4'>
+        <form onSubmit={handleSubmit(onSubmit)} className='relative h-full p-4'>
           <div className='flex flex-row py-4 flex-col'>
             <div className='flex justify-between items-center'>
               <div>
@@ -91,8 +53,10 @@ export const Login = () => {
             <div className='absolute left-4 bottom-3'>
               <MdEmail className='text-gray-400' />
             </div>
-            <input onChange={(e)=> setLoginData({...loginData, email: e.target.value})} type='email' name='email' className='h-12 w-full mt-2 border rounded-md outline-none focus:border-2 bg-gray-600 px-12' placeholder='Type here' />
+            <input type='email' name='email' className='h-12 w-full mt-2 border rounded-md outline-none focus:border-2 bg-gray-600 px-12' placeholder='Type here'  {...register("email",{required: true, pattern:/^[A-Za-z0-9_.+-]+@[A-Za-z0-9]+\.[a-zA-z0-9-.]+$/i})} />
           </div>
+          <span className='text-red-500 font-semibold'>{errors.email?.type === "required" && "Email is required"} </span>
+            <span className='text-red-500 font-semibold'>{errors.email?.type === "pattern" && "Email is invalid"}</span>
           </div>
           </div>
           <div className='flex flex-row py-4 flex-col'>
@@ -107,13 +71,14 @@ export const Login = () => {
                 <div className='absolute left-4 bottom-3'>
                   <MdLock className='text-gray-400 ' />
                 </div>
-                <input type={!openEye? 'password' : 'text'}  onChange={(e)=> setLoginData({...loginData, password: e.target.value})}  name='password' className='h-12 w-full mt-2 border rounded-md outline-none focus:border-2 bg-gray-600 px-12' placeholder='Type here' />
+                <input type={!openEye? 'password' : 'text'} name='password' className='h-12 w-full mt-2 border rounded-md outline-none focus:border-2 bg-gray-600 px-12' placeholder='Type here' {...register("password",{required: true, minLength:8})} />
                 {openEye ?  <IoMdEye className='cursor-pointer absolute right-2 top-6' onClick={passwordToggle} />  : <IoMdEyeOff className='cursor-pointer absolute right-2 top-6' onClick={passwordToggle} /> }
               </div>
+              <span className='text-red-500 font-semibold'>{errors.password?.type === "minLength" && "Password must be at least 8 characters"}</span>
+            <span className='text-red-500 font-semibold'>{errors.password?.type === "required" && "Password is required"}</span>
             </div>
           </div>
       <button type='submit' className='flex items-center justify-center gap-2 font-medium transition rounded border focus:outline-none focus-visible:ring focus-visible:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-40 border-transparent bg-red-950 text-white hover:bg-red-600 focus:ring focus:ring-neutral-600 active:bg-red-600 disabled:bg-red-100 p-3 text-lg tracking-normal w-full mt-4 mb-4'>Login</button>
-      {validForm ? <span></span> : <span className='text-red-500 font-normal'>{errors.email} {errors.password} </span>}
 
         </form>
         <div className='flex md:flex-row flex-col flex-wrap items-center justify-center md:justify-between mt-8 px-4 py-4'>

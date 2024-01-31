@@ -1,3 +1,2 @@
 
-export * from './LoanTypes.constant'
-export * from './Features.constant'
+export * from '../constant';
