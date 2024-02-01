@@ -13,16 +13,15 @@ export const SignUpform = ({form, ToastContainer}) => {
 
   const {register, formState:{errors}, handleSubmit} = useForm();
 
-  const onSubmit = async (data) =>{
-       const response = await axios.post('http://localhost:4000/users', data)
-          .then(response=>{
+  const onSubmit = async  (data) =>{
+          const response = await axios.post('http://localhost:3000/users', data)
               toast.success('Registered successfully');
-                  navigate('/login');
-                  register('')
-          })}
+              navigate('/login');
+              register('')
+              }
        
-
-
+      
+              
   
     return (
     <>

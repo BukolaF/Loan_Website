@@ -18,21 +18,11 @@ const navigate = useNavigate();
 
 const {register, handleSubmit, formState:{errors}} = useForm();
 
-  const onSubmit = async (data) => {
-        const response =  await axios.get('http://localhost:4000/users/')
-            .then(response =>{
-                response.data.map(user => {
-                  if (user.email === data.email || user.password === data.password){
+  const onSubmit = async (data) => {    
+        const response =  await axios.get('http://localhost:3000/users/')
                       alert('login succesful')
                       navigate('/UserDashboard')
-                  }
-                    // }else{
-                    //   alert('incorrect password or email')
-                    // }
-    
-            
-                  })})}
-    
+        }
 
   return (
     <>

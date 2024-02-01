@@ -1,21 +1,21 @@
 {
   "users": [
     {
-      "id": "0697",
+      "id": "f00e",
+      "firstname": "bukola",
+      "lastname": "ojoye",
+      "email": "bukolaojoye2@gmail.com",
+      "address": "ikeja",
+      "password": "babygirl23",
+      "number": "09090739343"
+    },
+    {
+      "id": "222d",
       "firstname": "hey",
       "lastname": "you",
       "email": "margaret@gmail.com",
       "address": "lagos",
       "password": "heyyou234",
-      "number": "08105561060"
-    },
-    {
-      "id": "8baf",
-      "firstname": "bukola",
-      "lastname": "ojoye",
-      "email": "bukolafavour25@gmail.com",
-      "address": "lagos",
-      "password": "babygirl23",
       "number": "08105561060"
     }
   ]
