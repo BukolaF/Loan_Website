@@ -7,4 +7,5 @@ export * from './Loans';
 export * from './Login';
 export * from './SignUp';
 export * from './UserDashboard';
+export * from './Admin';
 

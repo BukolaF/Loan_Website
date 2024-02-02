@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import {useForm} from'react-hook-form';
@@ -12,13 +12,21 @@ export const SignUpform = ({form, ToastContainer}) => {
    const navigate = useNavigate()
 
   const {register, formState:{errors}, handleSubmit} = useForm();
+  // const [error, setError] = useState()
 
   const onSubmit = async  (data) =>{
-          const response = await axios.post('http://localhost:3000/users', data)
-              toast.success('Registered successfully');
-              navigate('/login');
-              register('')
-              }
+    
+         try { 
+          const response = await axios.post('http://localhost:4000/users', data)
+            toast.success('Registered successfully');
+            navigate('/login')
+          }catch(err) {
+           toast.error(`failed:` +err.message);
+          }finally{
+            console.log(data);
+        }
+}
+  
        
       
               
@@ -26,6 +34,19 @@ export const SignUpform = ({form, ToastContainer}) => {
     return (
     <>
  <form ref={form} onSubmit={handleSubmit(onSubmit)} className='mx-auto max-w-xl gap-8 sm:mt-[20px]' noValidate=''>
+  
+ <div className="flex justify-around text-center" >
+        <div>
+            <label className=' text-black' htmlFor='role'>choose a role:</label>
+            <select className='ml-2' name='role' size={1} {...register("role",{required: true})}>
+            <option className=' text-black' selected></option>
+            <option className=' text-black' >Registered User</option>
+            <option className='text-black' >Admin</option>
+            </select>
+        </div>
+        <error className='text-red-500 font-semibold'>{errors.role?.type === "required" && "please select your role"}</error>
+
+        </div>
       <div className="grid grid-cols-2 gap-[16px]">
         <div>
             <label className='block text-black tracking-6 text-[18px] font-bold mb-2 mt-8' htmlFor='fname'>First Name</label>
@@ -61,7 +82,8 @@ export const SignUpform = ({form, ToastContainer}) => {
         </div>
         <div>
             <label className='block text-black tracking-6 text-[18px] font-semibold mb-2 mt-8' htmlFor='number'>Phone Number</label>
-           <input className='w-full px-3 py-2 border rounded-lg bg-gray-300 focus:border-gray-500' name='number'  placeholder='Enter your PhoneNumber'  type='number' {...register("number",{minLength:11, maxLength: 11,})} />
+           <input className='w-full px-3 py-2 border rounded-lg bg-gray-300 focus:border-gray-500' name='number'  placeholder='Enter your PhoneNumber'  type='number' {...register("number",{required:true, minLength:11, maxLength: 11,})} />
+           <error className='text-red-500 font-semibold'>{errors.number?.type === "required" && "Phone number is required"}</error>
            <error className='text-red-500 font-semibold'>{errors.number?.type === "minLength" && "11 digit number is required"}</error>
         </div>
         </div>

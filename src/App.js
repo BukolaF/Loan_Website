@@ -1,6 +1,6 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import {Home, UserDashboard, About, Contact, Loans, Login, SignUp} from './pages/';
-
+import {Home, UserDashboard, About, Contact, Loans, Login, SignUp, Admin} from './pages/';
+import { Sidebar } from './components';
 
 function App() {
   
@@ -10,9 +10,14 @@ function App() {
     loans: 'Loans',
     login: 'Login',
     signup: 'SignUp',
-    dashboard: 'UserDashboard',
+    user: 'UserDashboard',
+    admin: 'Admin'
   
   }
+
+
+
+
   return (
       <BrowserRouter>
       <Routes>
@@ -23,7 +28,8 @@ function App() {
       <Route path={ROUTE_PATHS.loans} element={<Loans />} />
       <Route path={ROUTE_PATHS.login} element={<Login />} />
       <Route path={ROUTE_PATHS.signup} element={<SignUp />} />
-      <Route path={ROUTE_PATHS.dashboard} element={<UserDashboard />} />
+      <Route path={ROUTE_PATHS.user} element={<UserDashboard  />} />
+      <Route path={ROUTE_PATHS.admin} element={<Admin />} />
       </Routes>
       </BrowserRouter>
 

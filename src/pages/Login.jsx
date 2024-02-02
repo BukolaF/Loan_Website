@@ -18,11 +18,24 @@ const navigate = useNavigate();
 
 const {register, handleSubmit, formState:{errors}} = useForm();
 
-  const onSubmit = async (data) => {    
-        const response =  await axios.get('http://localhost:3000/users/')
-                      alert('login succesful')
-                      navigate('/UserDashboard')
-        }
+  const onSubmit = async (data) => {  
+    try{ 
+        const response =  await axios.get('http://localhost:4000/users/', register )
+        response.data.map(user => {
+        if (user.email === data.email || user.password === data.password || user.role === 'admin'){
+          alert('login succesful')
+            navigate('/Admin')
+         } else if (user.email === data.email || user.password === data.password || user.role === 'registered user'){
+          alert('login succesful')
+            navigate('/UserDashboard')
+          } else{
+          alert('invalid credentials')
+      }
+    })}catch(err) {
+           alert(`failed:` +err.message);
+      }finally{
+            console.log(data);
+        }}
 
   return (
     <>
@@ -31,6 +44,18 @@ const {register, handleSubmit, formState:{errors}} = useForm();
         <div className='md:w-4/12 w-11/12 mt-8 mb-5 py-4 rounded-lg border border-neutral-100 shadow bg-gray-400 h-auto mx-auto'>
         <h2 className='text-3xl text-center text-black uppercase font-bold my-6 sm:text-4xl'>Login</h2>
         <form onSubmit={handleSubmit(onSubmit)} className='relative h-full p-4'>
+        <div className="flex justify-around text-center" >
+        <div>
+            <label className=' text-black' htmlFor='role'>choose a role:</label>
+            <select className='ml-2' name='role' size={1} {...register("role",{required: true})}>
+            <option className=' text-black' selected></option>
+            <option className=' text-black' >Registered User</option>
+            <option className='text-black' >Admin</option>
+            </select>
+        </div>
+        <error className='text-red-500 font-semibold'>{errors.role?.type === "required" && "please select your role"}</error>
+
+        </div>
           <div className='flex flex-row py-4 flex-col'>
             <div className='flex justify-between items-center'>
               <div>
