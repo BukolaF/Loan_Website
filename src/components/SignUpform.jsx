@@ -22,9 +22,7 @@ export const SignUpform = ({form, ToastContainer}) => {
             navigate('/login')
           }catch(err) {
            toast.error(`failed:` +err.message);
-          }finally{
-            console.log(data);
-        }
+          }
 }
   
        

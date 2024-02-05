@@ -1,6 +1,8 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import {Home, UserDashboard, About, Contact, Loans, Login, SignUp, Admin} from './pages/';
-import { Sidebar } from './components';
+import {LoanApplications, LoanHistory, UserProfile, NewUserForm} from './userpages/'
+import { UserDashboardMenu } from './components/UserDashboardMenu';
+
 
 function App() {
   
@@ -11,7 +13,8 @@ function App() {
     login: 'Login',
     signup: 'SignUp',
     user: 'UserDashboard',
-    admin: 'Admin'
+    Admin: 'Admin'
+
   
   }
 
@@ -28,11 +31,23 @@ function App() {
       <Route path={ROUTE_PATHS.loans} element={<Loans />} />
       <Route path={ROUTE_PATHS.login} element={<Login />} />
       <Route path={ROUTE_PATHS.signup} element={<SignUp />} />
-      <Route path={ROUTE_PATHS.user} element={<UserDashboard  />} />
-      <Route path={ROUTE_PATHS.admin} element={<Admin />} />
-      </Routes>
+      <Route path={ROUTE_PATHS.user} element={<UserDashboard />} />
+      <Route path={ROUTE_PATHS.Admin} element={<Admin />} />
+      </Routes> 
+      <Routes>
+    <Route path='/' element={<UserDashboardMenu />} />
+   <Route path='/apply' element={<LoanApplications />} />
+   <Route path='/history' element={<LoanHistory />} />
+   <Route path='/settings' element={<UserProfile  />} />
+   <Route path='/newform' element={<NewUserForm  />} />
+
+
+</Routes> 
+     
+
       </BrowserRouter>
 
+ 
   );
 }
 

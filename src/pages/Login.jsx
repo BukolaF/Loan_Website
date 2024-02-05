@@ -22,20 +22,17 @@ const {register, handleSubmit, formState:{errors}} = useForm();
     try{ 
         const response =  await axios.get('http://localhost:4000/users/', register )
         response.data.map(user => {
-        if (user.email === data.email || user.password === data.password || user.role === 'admin'){
+        if (user.email === data.email || user.password === data.password || data.role === 'Admin'){
           alert('login succesful')
             navigate('/Admin')
-         } else if (user.email === data.email || user.password === data.password || user.role === 'registered user'){
+            console.log(data)
+         } else if (user.email === data.email || user.password === data.password || data.role === 'Registered User'){
           alert('login succesful')
-            navigate('/UserDashboard')
-          } else{
-          alert('invalid credentials')
-      }
+          navigate('/UserDashboard')
+        }
     })}catch(err) {
            alert(`failed:` +err.message);
-      }finally{
-            console.log(data);
-        }}
+      }}
 
   return (
     <>
