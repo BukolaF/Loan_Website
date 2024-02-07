@@ -1,14 +1,12 @@
 import React from 'react'
-import { UserDashboardMenu } from '../components/UserDashboardMenu'
+import { UserDashboard } from '../pages'
 
 export const UserProfile = () => {
   return (
-    <div className='flex'>
-      <UserDashboardMenu />
-      <div className='flex flex-col w-full bg-blue-200'>
-
+    <div className='flex bg-blue-200'>
+  <UserDashboard />
       <form>
-      <div className="border-b border-gray-900/10 pb-12 flex flex-col justify-center text-center items-center">
+      <div className="border-b border-gray-900/10 pb-12 flex flex-col w-full justify-center text-center items-center">
           <h2 className="text-base mt-4 font-semibold leading-7 text-blue-700 mx-10 text-center">Personal Information</h2>
           <p className="mt-1 text-sm leading-6 text-red-400">Use a permanent address where you can receive mail.</p>
 
@@ -48,7 +46,7 @@ export const UserProfile = () => {
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-blue-700">
                 Email address
               </label>
-              <div className="mt-2">
+              <div className="mt-6">
                 <input
                 value={"bukolaojoye2@gmail.com"}
                   id="email"
@@ -63,7 +61,7 @@ export const UserProfile = () => {
         <label htmlFor="postal-code" className="block text-sm font-medium leading-6 text-blue-700">
           ZIP / Postal code
           </label>
-              <div className="mt-2">
+              <div className="mt-6">
                 <input
                   type="text"
                   name="postal-code"
@@ -79,7 +77,7 @@ export const UserProfile = () => {
               <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-blue-700">
                 Street address
               </label>
-              <div className="mt-2">
+              <div className="mt-6">
                 <input
                   type="text"
                   name="street-address"
@@ -94,11 +92,11 @@ export const UserProfile = () => {
           </div>
         </div>
 
-        <div className="border-b border-gray-900/10 pb-4 px-8">
+        <div className="border-b border-gray-900/10 pb-12 px-8">
           <h2 className="text-base font-semibold leading-7 text-blue-700">Notifications</h2>
           
 
-          <div className="mt-2 space-y-10">
+          <div className="mt-8 space-y-10">
             <fieldset>
               <legend className="text-sm font-semibold leading-6 text-gray-900">By Email</legend>
               <div className="mt-6 space-y-4">
@@ -139,7 +137,7 @@ export const UserProfile = () => {
           </div>
         </div>
 
-      <div className="mt-4 flex items-center justify-end gap-x-6">
+      <div className="mt-10 flex items-center justify-end gap-x-6">
         <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
           Cancel
         </button>
@@ -153,6 +151,5 @@ export const UserProfile = () => {
     </form>
     </div>
 
-    </div>
   )
 }

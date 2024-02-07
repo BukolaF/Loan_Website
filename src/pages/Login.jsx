@@ -21,16 +21,15 @@ const {register, handleSubmit, formState:{errors}} = useForm();
   const onSubmit = async (data) => {  
     try{ 
         const response =  await axios.get('http://localhost:4000/users/', register )
-        response.data.map(user => {
+        response.data.map(user =>{
         if (user.email === data.email || user.password === data.password || data.role === 'Admin'){
           alert('login succesful')
-            navigate('/Admin')
-            console.log(data)
+            navigate('/admin')
          } else if (user.email === data.email || user.password === data.password || data.role === 'Registered User'){
           alert('login succesful')
-          navigate('/UserDashboard')
+          navigate('/userDashboard')
         }
-    })}catch(err) {
+      })}catch(err) {
            alert(`failed:` +err.message);
       }}
 

@@ -1,28 +1,28 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import {Home, UserDashboard, About, Contact, Loans, Login, SignUp, Admin} from './pages/';
-import {LoanApplications, LoanHistory, UserProfile, NewUserForm} from './userpages/'
-import { UserDashboardMenu } from './components/UserDashboardMenu';
-
+import {Home, UserDashboard, About, Contact, Loans, Login, SignUp, Admin, LoanHistory, NewUserForm, UserProfile} from './pages';
+import { LoanApplications } from './userpages';
 
 function App() {
   
-  const ROUTE_PATHS ={
+  const ROUTE_PATHS = {
     about: 'About',
     contact: 'Contact',
     loans: 'Loans',
     login: 'Login',
     signup: 'SignUp',
-    user: 'UserDashboard',
-    Admin: 'Admin'
+    userDashboard: 'UserDashboard',
+    admin: 'Admin',
+    newuserform: 'NewUserForm',
+    userprofile: 'UserProfile',
+    loanhistory: 'LoanHistory',
+    loanapplications: 'LoanApplications'
 
-  
-  }
-
-
+  };
 
 
   return (
-      <BrowserRouter>
+      
+<BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route index element={<Home />} />
@@ -31,22 +31,14 @@ function App() {
       <Route path={ROUTE_PATHS.loans} element={<Loans />} />
       <Route path={ROUTE_PATHS.login} element={<Login />} />
       <Route path={ROUTE_PATHS.signup} element={<SignUp />} />
-      <Route path={ROUTE_PATHS.user} element={<UserDashboard />} />
-      <Route path={ROUTE_PATHS.Admin} element={<Admin />} />
-      </Routes> 
-      <Routes>
-    <Route path='/' element={<UserDashboardMenu />} />
-   <Route path='/apply' element={<LoanApplications />} />
-   <Route path='/history' element={<LoanHistory />} />
-   <Route path='/settings' element={<UserProfile  />} />
-   <Route path='/newform' element={<NewUserForm  />} />
-
-
-</Routes> 
-     
-
+      <Route path={ROUTE_PATHS.userDashboard} element={<UserDashboard />} />
+      <Route path={ROUTE_PATHS.admin} element={<Admin />} />
+      <Route path={ROUTE_PATHS.newuserform} element={<NewUserForm />} />
+      <Route path={ROUTE_PATHS.userprofile} element={<UserProfile />} />
+      <Route path={ROUTE_PATHS.loanhistory} element={<LoanHistory />} />
+      <Route path={ROUTE_PATHS.loanapplications} element={<LoanApplications />} />
+      </Routes>
       </BrowserRouter>
-
  
   );
 }

@@ -1,5 +1,3 @@
-import React from 'react';
-import { LoanStatus } from './LoanStatus';
 
 export const LoanHistoryData = () => {
    
@@ -116,7 +114,7 @@ export const LoanHistoryData = () => {
               <td className='border-solid border-4 border-gray-500 text-center border-b-4 p-2'>{new Date(data.application_date).toLocaleDateString()}</td>
               <td className='border-solid border-4 border-gray-500 text-center border-b-4 p-2'>#{data.application_id}</td>
               <td className='border-solid border-4 border-gray-500 text-center border-b-4 p-2'>{data.disbursement_date}</td>
-              <td className='border-solid border-4 border-gray-500 text-center border-b-4'>{LoanStatus(data.status)}</td>
+              <td className='border-solid border-4 border-gray-500 text-center border-b-4'>{data.status}</td>
           </tr>
             )
 

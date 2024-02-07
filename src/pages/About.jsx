@@ -1,6 +1,6 @@
-import React from 'react'
-import { Footer, Navbar} from '../components'
-import { Features } from '../components'
+import React from 'react';
+import {Navbar, Footer} from '../components';
+import { Features } from '../constant';
 
 
 export const About = () => {
