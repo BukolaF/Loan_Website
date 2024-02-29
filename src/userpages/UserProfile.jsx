@@ -58,16 +58,16 @@ export const UserProfile = () => {
               </div>
             </div>
             <div className="sm:col-span-2">
-        <label htmlFor="postal-code" className="block text-sm font-medium leading-6 text-blue-700">
-          ZIP / Postal code
+        <label htmlFor="phone-number" className="block text-sm font-medium leading-6 text-blue-700">
+          Phone number
           </label>
               <div className="mt-6">
                 <input
-                  type="text"
-                  name="postal-code"
-                  id="postal-code"
-                  autoComplete="postal-code"
+                  type="number"
+                  name="phone"
+                  id="phone"
                   required
+                  size={11}
                   className="block w-full rounded-md border-0 py-1.5 px-2 mx-10 text-gray-900 shadow-sm ring-1 ring-inset ring-blue-100 placeholder:text-blue-100 sm:text-sm sm:leading-6"
                 />
               </div>

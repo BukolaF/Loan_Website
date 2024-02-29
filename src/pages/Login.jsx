@@ -20,7 +20,7 @@ const {register, handleSubmit, formState:{errors}} = useForm();
 
   const onSubmit = async (data) => {  
     try{ 
-        const response =  await axios.get('http://localhost:4000/users/', register )
+        const response =  await axios.get('http://localhost:5000/users/', register )
         response.data.map(user =>{
         if (user.email === data.email || user.password === data.password || data.role === 'Admin'){
           alert('login succesful')
