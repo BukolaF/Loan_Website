@@ -8,6 +8,8 @@ export * from './Navbar';
 export * from './PageControl';
 export * from './SignUpform';
 export * from './DashboardMenu';
+export * from './FirstUserForm';
+export * from './SecondUserForm';
 
 
 
