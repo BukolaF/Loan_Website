@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export const Hero = () => {
   return (
     <div className='text-blue-600'>
-        <div className='max-w-[800px] mt-[56px] w-full h-screen mx-auto text-center flex flex-col'>
+        <div className='max-w-[900px] mt-[56px] w-full mx-auto text-center flex flex-col'>
         <p className='font-bold p-2 text-3xl uppercase'>Quick loan service</p>
         <h1 className='text-blue-950 md:text-7xl sm:text-6xl text-4xl font-bold md:py-6'>Start Creating Your Dream with Us.</h1>
         <div>

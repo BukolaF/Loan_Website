@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 
 export const NavItems = () => {
     const navItems =[
+        {path:"/", link: "Home"},
         {path: "/loans", link: "Loans"},
         {path: "/about", link: "About"},
         {path: "/login", link: "Login"},
@@ -11,8 +12,14 @@ export const NavItems = () => {
       ]
   return (
     <> 
-        {navItems.map(({path,link}) => <li className='p-8'>
-        <NavLink to={path}>{link}</NavLink> </li>)}
+        {navItems.map(({path,link}) => <li key={link} className='p-8 font-semibold'>
+        <NavLink
+        className={({isActive, isPending}) => isActive
+        ? "active"
+        : isPending
+        ? "pending"
+        : ""} 
+        to={path}>{link}</NavLink> </li>)}
         </>
   )
 }

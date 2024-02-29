@@ -1,15 +1,18 @@
 import React from 'react';
 import {Hero, Navbar, Footer} from '../components/';
+import { Features } from '../constant';
+
 
 
 
 export const Home = () => {
   return (
-    <div>
+    <>
       <Navbar />
       <Hero />
+      <Features/>
       <Footer />
-    </div>
+    </>
   )
 }
 
