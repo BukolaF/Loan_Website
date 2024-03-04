@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "id": "953a",
+      "role": "Registered User",
+      "firstname": "hannah",
+      "lastname": "samuel",
+      "email": "bukolaojoye2@gmail.com",
+      "address": "lagos",
+      "password": "hannah234",
+      "number": "08023432352"
+    },
+    {
+      "id": "152e",
+      "role": "Admin",
+      "firstname": "bukola",
+      "lastname": "ojoye",
+      "email": "Bukolafavour25@gmail.com",
+      "address": "lagos",
+      "password": "bukola234",
+      "number": "08105954130"
+    }
+  ]
+}

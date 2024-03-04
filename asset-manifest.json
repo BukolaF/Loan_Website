@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/loan_website/static/css/main.630b1939.css",
+    "main.js": "/loan_website/static/js/main.f8a51041.js",
+    "index.html": "/loan_website/index.html",
+    "main.630b1939.css.map": "/loan_website/static/css/main.630b1939.css.map",
+    "main.f8a51041.js.map": "/loan_website/static/js/main.f8a51041.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.630b1939.css",
+    "static/js/main.f8a51041.js"
+  ]
+}
