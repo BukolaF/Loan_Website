@@ -2,7 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-
+html {
+  width: 100%;
+  margin: 0;
+  height: 100%;
+}
 body{
-  background-color: white;
+  min-height: 100%;
+
+}
+ul{
+  text-decoration:none;
+}
+button{
+  cursor: pointer;
+}
+.active{
+  @apply text-blue-900 bg-blue-200 font-extrabold underline;
+}
+li{
+  list-style-type: none;
 }
